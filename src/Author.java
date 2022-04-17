@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Author {
+
 
     /**
      * WORK ON BOOK CLASS FIRST
@@ -39,14 +41,27 @@ public class Author {
     //Override toString() method here that returns Author object information
     @Override
     public String toString() {
-        return "Author{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", country='" + country + '\'' +
-                ", isAlive=" + isAlive +
-                ", age=" + age +
-                "\nAuthor's books are as listed below:" +
-                ", books=" + books +
-                '}';
+        StringBuilder result;
+        if (this.age == 0) {
+            result = new StringBuilder("\nAuthor's information = Author{firstName='" +
+                    firstName + "', lastName='" + lastName + "', country='" +
+                    country + "', isAlive=" + isAlive + "}");
+        } else {
+            result = new StringBuilder("\nAuthor's information = Author{firstName='" +
+                    firstName + "', lastName='" + lastName + "', country='" +
+                    country + "', isAlive=" + isAlive + ", age=" + age + "}");
+        }
+        if (books.isEmpty()) return result.toString();
+        else {
+            result.append("\nAuthor's books are as listed below:");
+            for (Book book : books) {
+                result.append(book);
+            }
+        }
+        return result.toString();
     }
+
+
+
+
 }

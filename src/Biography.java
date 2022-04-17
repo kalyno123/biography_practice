@@ -48,36 +48,43 @@ public class Biography {
         Book{name='24 Hours in the Life of a Woman', tale='novella', page=80}
         */
 
-
         //GLOBAL VARIABLES:
         Scanner userInput = new Scanner(System.in);
         ArrayList<Book> books = new ArrayList<>();
 
         System.out.println(Author.askFirstName);
         String firstName = userInput.next();
+
         System.out.println(Author.askLastName);
         String lastName = userInput.next();
+
         System.out.println(Author.askCountry);
         String country = userInput.next();
+
         System.out.println(Author.askIsAlive);
         boolean isAlive = userInput.next().toUpperCase().startsWith("Y");
+
         int age = 0;
         if (isAlive) { // if alive ask for age; if not skip age question.
             System.out.println(Author.askAge);
             age = userInput.nextInt();
         }
 
+
         String answer;
         do {
             System.out.println(Book.askBookInfo); // if yes then ask; if no then end.
             answer = userInput.next();
+
             if (answer.toUpperCase().startsWith("N")) break;
             else if (answer.toUpperCase().startsWith("Y")){
                 System.out.println(Book.askBookName);
                 userInput.nextLine();
                 String name = userInput.nextLine();
+
                 System.out.println(Book.askBookGenre);
                 String genre = userInput.next();
+
                 System.out.println(Book.askBookPages);
                 int totalPage = userInput.nextInt();
 
@@ -89,7 +96,7 @@ public class Biography {
         Author author = new Author(firstName, lastName, country, isAlive, age, Author.books);
         System.out.println(author);
 
-        /* for (Book book : books){
+        /* for (Book book : Author.books){
             System.out.println(book);
         } */
 
