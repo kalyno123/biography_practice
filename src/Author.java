@@ -43,7 +43,7 @@ public class Author {
     public String toString() {
         StringBuilder result;
         if (this.age == 0) {
-            result = new StringBuilder("\nAuthor's information = Author{firstName='" +
+            result = new StringBuilder("Author's information = Author{firstName='" +
                     firstName + "', lastName='" + lastName + "', country='" +
                     country + "', isAlive=" + isAlive + "}");
         } else {
@@ -55,7 +55,7 @@ public class Author {
         else {
             result.append("\nAuthor's books are as listed below:");
             for (Book book : books) {
-                result.append(book);
+                result.append("\n" + book);
             }
         }
         return result.toString();

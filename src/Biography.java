@@ -48,9 +48,7 @@ public class Biography {
         Book{name='24 Hours in the Life of a Woman', tale='novella', page=80}
         */
 
-        //GLOBAL VARIABLES:
         Scanner userInput = new Scanner(System.in);
-        ArrayList<Book> books = new ArrayList<>();
 
         System.out.println(Author.askFirstName);
         String firstName = userInput.next();
@@ -71,6 +69,7 @@ public class Biography {
         }
 
 
+        ArrayList<Book> books = new ArrayList<>();
         String answer;
         do {
             System.out.println(Book.askBookInfo); // if yes then ask; if no then end.
@@ -89,16 +88,14 @@ public class Biography {
                 int totalPage = userInput.nextInt();
 
                 Book book = new Book(name, genre, totalPage);
-                Author.books.add(book);
+                books.add(book);
             }
         } while (answer.toUpperCase().startsWith("Y"));
 
-        Author author = new Author(firstName, lastName, country, isAlive, age, Author.books);
+
+        Author author = new Author(firstName, lastName, country, isAlive, age, books);
         System.out.println(author);
 
-        /* for (Book book : Author.books){
-            System.out.println(book);
-        } */
 
 
 
